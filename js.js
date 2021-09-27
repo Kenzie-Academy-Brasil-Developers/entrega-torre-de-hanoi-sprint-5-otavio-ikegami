@@ -1,10 +1,16 @@
-const main = document.getElementsByTagName('main');
+const corpo = document.querySelector('main');
 
+    let divCreate = () => {
+    
+    for(let i = 0; i < 3; i++){
+        const div = document.createElement('div');
 
-let divCreate = () =>{
-    const div = document.createElement('div');
-console.log(div)
-    main.appendChild(div)
-}
+        div.classList.add('torre')
 
-divCreate();
+        corpo.appendChild(div);
+    }
+
+    }
+
+    divCreate();
+
