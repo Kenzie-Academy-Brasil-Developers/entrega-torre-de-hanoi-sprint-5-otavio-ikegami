@@ -7,11 +7,14 @@
     margin: 5px;
     display: flex; 
     flex-direction: column-reverse; 
-    justify-content: center;
-    text-align: left;
-    vertical-align: bottom;
+    justify-content: center;    
 }
-.main{
+p{
+    position: absolute;
+    transform: translateY(-300%);
+}
+
+main{
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
@@ -38,4 +41,8 @@
 #disco2{
     width: 30%;
     background-color: cadetblue;
+}
+.selected{
+    transform: translateY(-30%);
+    border:rgb(236, 13, 13) solid 5px;
 }
