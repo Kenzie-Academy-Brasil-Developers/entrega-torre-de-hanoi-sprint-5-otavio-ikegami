@@ -14,7 +14,7 @@ function movimentoDisco (){
         torreAlvo.appendChild(disco);
         moves++;
     }
-    if(torre.childElementCount===5){
+    if(torreResultado.childElementCount===5){
         //ganhou
     }
 }
