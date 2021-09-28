@@ -1,16 +1,29 @@
 const corpo = document.querySelector('main');
+const button = document.getElementById('btn');
 
-    let divCreate = () => {
+
+     let createDiv = (classe, destino) => {
+        
+        for(let i = 0; i < 3; i++){
+            
+            const div = document.createElement('div');
     
-    for(let i = 0; i < 3; i++){
-        const div = document.createElement('div');
+            div.classList.add(classe)
+    
+            div.setAttribute('id', classe + i)
+        
+            destino.appendChild(div);
+        }
+     }
 
-        div.classList.add('torre')
+     window.onload = createDiv('torre', corpo);
 
-        corpo.appendChild(div);
+    let displayCreate = () => {
+
+    const torre0 = document.querySelector('torre0');
+    createDiv('disco',torre0);
+
     }
 
-    }
 
-    divCreate();
-
+    button.addEventListener('click', createDiv);
