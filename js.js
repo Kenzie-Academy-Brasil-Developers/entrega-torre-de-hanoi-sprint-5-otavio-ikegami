@@ -13,18 +13,22 @@ function movimentoDisco (){
         }
     })
     let discoSaida =torreDisco.lastChild;
+    discoSaida.classList.add("selected");
     if(torreAlvo.childElementCount!==0){
         let discoComp = torreAlvo.lastChild;
         if (discoSaida.clientWidth>discoComp.clientWidth){
             alert('Escolha inválida!')
+            discoSaida.classList.remove("selected");
         }
     }
     if (torreDisco.childElementCount===0){
         alert('Escolha inválida!')
+        discoSaida.classList.remove("selected");
     }
     else{ 
         torreAlvo.appendChild(disco);
         moves++;
+        discoSaida.classList.remove("selected");
     }
     if(torreResultado.childElementCount===5){
         document.getElementById('').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
