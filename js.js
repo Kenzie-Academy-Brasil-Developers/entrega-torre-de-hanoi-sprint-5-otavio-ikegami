@@ -4,8 +4,13 @@ function movimentoDisco (){
     let torreResultado=document.getElementsById('torre2')
     let torres = document.getElementById('torres#colcarid#').click(function(){
         cliques++;
-        if(cliques===1){primeiraTorre}
-        else if(cliques===2){segundaTorre}
+        if(cliques===1){
+            primeiraTorre();
+        }
+        else if(cliques===2){
+            segundaTorre();
+            return cliques=0;
+        }
     })
     let discoSaida =torreDisco.lastChild;
     if(torreAlvo.childElementCount!==0){
@@ -17,7 +22,7 @@ function movimentoDisco (){
     if (torreDisco.childElementCount===0){
         alert('Escolha inválida!')
     }
-    else{
+    else{ 
         torreAlvo.appendChild(disco);
         moves++;
     }
@@ -45,3 +50,5 @@ function segundaTorre (){
     let torreAlvo = document.getElementById(y.target.id);
     return torreAlvo;
 })}
+
+
