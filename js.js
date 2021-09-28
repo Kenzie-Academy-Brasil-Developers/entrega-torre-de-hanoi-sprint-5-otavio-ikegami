@@ -1,23 +1,32 @@
+let moves=0;
 function movimentoDisco (){
     let cliques=0;
-    let moves=0;
     let torreResultado=document.getElementsById('torre2')
     let torres = document.getElementById('torres#colcarid#').click(function(){
         cliques++;
         if(cliques===1){primeiraTorre}
         else if(cliques===2){segundaTorre}
     })
-    if (torreDisco.childElementCount===0 // || se o alvo for menor 
-        ){alert('Escolha inválida!')}
+    let discoSaida =torreDisco.lastChild;
+    if(torreAlvo.childElementCount!==0){
+        let discoComp = torreAlvo.lastChild;
+        if (discoSaida.clientWidth>discoComp.clientWidth){
+            alert('Escolha inválida!')
+        }
+    }
+    if (torreDisco.childElementCount===0){
+        alert('Escolha inválida!')
+    }
     else{
-        let disco =torreDisco.lastChild;
         torreAlvo.appendChild(disco);
         moves++;
     }
     if(torreResultado.childElementCount===5){
-        //ganhou
+        document.getElementById('').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
     }
-}
+
+} 
+document.getElementById('').appendChild(document.createTextNode(moves))
 
 
 
