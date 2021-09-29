@@ -51,8 +51,6 @@ const body = document.querySelector('body')
 
     let moviment = (ev) => {
 
-<<<<<<< HEAD
-
         if(clique){
             discoSelecionado = ev.currentTarget.lastChild;
             discoSelecionado.classList.add('selected');
@@ -81,7 +79,6 @@ const body = document.querySelector('body')
             }
             
         }  
-=======
 
         if(clique){
             discoSelecionado = ev.currentTarget.lastChild;
@@ -129,19 +126,13 @@ const body = document.querySelector('body')
         torre0.appendChild(disco0);
         torre0.appendChild(disco1);
         torre0.appendChild(disco2);
->>>>>>> cb0fcc6565c9a72ef5f465c27011ca27812a2c4c
     }
     const reset = document.querySelector('.reset');
     reset.onclick = resetGame;
 
-
-<<<<<<< HEAD
     document.querySelector('#torre0').addEventListener("click", moviment);
     document.querySelector('#torre1').addEventListener("click", moviment);
     document.querySelector('#torre2').addEventListener("click", moviment);
-=======
->>>>>>> cb0fcc6565c9a72ef5f465c27011ca27812a2c4c
-
 
     //FUNÇÃO RESET
     let resetGame = () =>{
