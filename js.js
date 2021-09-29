@@ -52,9 +52,80 @@ const button = document.getElementById('btn');
 
     createDiv('disco',torre0, 3);
 
+    
+    //FUNÇÃO DE MOVIMENTO
+    let discoSelecionado='';
+    discoTamanho=0;
+    let moves=0;
+    //torre0
+    document.getElementById('torre0').addEventListener("click", () =>{
+    //adicionar disco
+    if(discoTamanho!==0 && 
+        discoTamanho<document.getElementById('torre0').lastChild.clientWidth){
+        document.getElementById('torre0').appendChild(discoSelecionado);
+        document.getElementById('torre0').lastChild.classList.remove("selected");
+        moves++;
+    }
+    //selecionar disco
+    if(document.getElementById('torre0').childElementCount>1){
+        discoSelecionado=document.getElementById('torre0').lastChild;
+        discoTamanho=document.getElementById('torre0').offsetWidth;
+        document.getElementById('torre0').lastChild.classList.add("selected");
+    }
+    //condição de vitória 
+    if(document.getElementById('torre2').childElementCount===3){
+        document.getElementById('resultado').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
+        document.getElementById('contador').appendChild(document.createTextNode(moves))
+
+    }
+    })
+    //torre1
+    document.getElementById('torre1').addEventListener("click", () =>{
+    //adicionar disco
+    if(discoTamanho!==0 && 
+        discoTamanho<document.getElementById('torre1').lastChild.clientWidth){
+        document.getElementById('torre1').appendChild(discoSelecionado);
+        document.getElementById('torre1').lastChild.classList.remove("selected");
+        moves++;
+    }
+    //selecionar disco
+    if(document.getElementById('torre1').childElementCount>1){
+        discoSelecionado=document.getElementById('torre1').lastChild;
+        discoTamanho=document.getElementById('torre1').offsetWidth;
+        document.getElementById('torre1').lastChild.classList.add("selected");
+    }
+    //condição de vitória 
+    if(document.getElementById('torre2').childElementCount===3){
+        document.getElementById('resultado').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
+        document.getElementById('contador').appendChild(document.createTextNode(moves))
+
+    }
+    })
+    //torre2
+    document.getElementById('torre2').addEventListener("click", () =>{
+    //adicionar disco    
+    if(discoTamanho!==0 && 
+    discoTamanho<document.getElementById('torre2').lastChild.clientWidth){
+        document.getElementById('torre2').appendChild(discoSelecionado);
+        document.getElementById('torre2').lastChild.classList.remove("selected");
+        moves++;
+    }
+    //selecionar disco
+    if(document.getElementById('torre2').childElementCount>1){
+        discoSelecionado=document.getElementById('torre2').lastChild;
+        discoTamanho=document.getElementById('torre2').offsetWidth;
+        document.getElementById('torre2').lastChild.classList.add("selected");
+    }
+    //condição de vitória 
+    if(document.getElementById('torre2').childElementCount===3){
+        document.getElementById('resultado').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
+        document.getElementById('contador').appendChild(document.createTextNode(moves))
+
+    }
+    })
+    
     return button.remove();
     }
-
 
     button.addEventListener('click', displayCreate);
 
@@ -64,70 +135,7 @@ const button = document.getElementById('btn');
         displayCreate();
     }
 
-    const reset = document.querySelector('.reset');
-    reset.onclick = resetGame;
-//FUNÇÃO DE MOVIMENTO
-
-let moves=0;
-function movimentoDisco (){
-    let cliques=0;
-    let torreResultado=document.getElementsById('torre2')
-    let torres = document.getElementById('torres#colcarid#').click(function(){
-        cliques++;
-        if(cliques===1){
-            primeiraTorre();
-        }
-        else if(cliques===2){
-            segundaTorre();
-            return cliques=0;
-        }
-    })
-    let discoSaida =torreDisco.lastChild;
-    discoSaida.classList.add("selected");
-    if(torreAlvo.childElementCount!==0){
-        let discoComp = torreAlvo.lastChild;
-        if (discoSaida.clientWidth>discoComp.clientWidth){
-            alert('Escolha inválida!')
-            discoSaida.classList.remove("selected");
-        }
-    }
-    if (torreDisco.childElementCount===0){
-        alert('Escolha inválida!')
-        discoSaida.classList.remove("selected");
-    }
-    else{ 
-        torreAlvo.appendChild(disco);
-        moves++;
-        discoSaida.classList.remove("selected");
-    }
-    if(torreResultado.childElementCount===5){
-        document.getElementById('').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
-    }
-
-} 
-document.getElementById('').appendChild(document.createTextNode(moves))
+    // const reset = document.querySelector('.reset');
+    // reset.onclick = resetGame;
 
 
-
-
-//torre0 torre1 torre2
-
-function primeiraTorre (){
-    let torres = document.getElementById('torres#colocarid#');
-    torres.addEventListener('click', function(x) {
-    let torreDisco = document.getElementById(x.target.id);
-    return torreDisco;
-})}
-function segundaTorre (){
-    let torres = document.getElementById('torres#colocarid#');
-    torres.addEventListener('click', function(y) {
-    let torreAlvo = document.getElementById(y.target.id);
-    return torreAlvo;
-})}
-
-
-//TESTE DE EXECUÇÃO
-  torre0.onclick = (x) =>{
-      console.log(x.currentTarget);
-    return x.currentTarget
-  } 
