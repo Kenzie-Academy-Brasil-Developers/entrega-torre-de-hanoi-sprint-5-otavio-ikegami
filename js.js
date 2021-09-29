@@ -92,9 +92,9 @@ const body = document.querySelector('body')
         const disco0 = document.querySelector('#disco0');
         const disco1 = document.querySelector('#disco1');
         const disco2 = document.querySelector('#disco2');
-
         const torre0 = document.querySelector('#torre0');
-
+        moves=0;
+        contador.innerText = 'Movimentos:' + moves;
         torre0.appendChild(disco0);
         torre0.appendChild(disco1);
         torre0.appendChild(disco2);

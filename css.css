@@ -2,12 +2,19 @@
     background-image:url('./pictures/torre.png');
     background-position: center;
     object-fit: cover;
-    width: 150px;
+    width: 33%;
     height: 200px;
-    margin: 5px;
     display: flex; 
     flex-direction: column-reverse; 
-    justify-content: center;    
+    /*justify-content: center; talvez tirar*/
+}
+.reset{
+    margin-top: 20px;
+    width: 30vw;
+    height: 5vh;
+    font-size: 5vw;
+    font-weight: 700;
+    border-radius: 5%;
 }
 p{
     position: absolute;
@@ -18,6 +25,9 @@ main{
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
+    border-bottom:30px solid black;
+    border-bottom-left-radius: 3%;
+    border-bottom-right-radius: 3%;
 }
 .button{
     padding: 10px;
@@ -26,23 +36,45 @@ main{
 .disco{
     align-self: center;
     width: 80%;
-    height: 100px;
-    margin: 10px;
+    height: 25px;
     border-radius: 20px;
+    border: 2px solid rgb(0, 0, 0,0.4);
 }
 #disco0{
     width: 90%;
-    background-color: cornflowerblue;
+    background: linear-gradient(to right, rgb(35, 105, 255), rgb(0, 0, 139), rgb(35, 105, 255)) ;
 }
 #disco1{
-    width: 60%;
-    background-color: burlywood;
+    width: 70%;
+    background: linear-gradient(to right, rgb(86, 255, 64), rgb(17, 148, 0), rgb(86, 255, 64)) ;;
 }
 #disco2{
-    width: 30%;
-    background-color: cadetblue;
+    width: 40%;
+    background:linear-gradient(to right,rgb(255, 79, 79), rgb(255, 0, 0),rgb(255, 79, 79)) ;
 }
 .selected{
     transform: translateY(-30%);
-    border:rgb(236, 13, 13) solid 5px;
+    border:rgb(236, 221, 13) solid 5px;
+}
+.contador{
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 2em;
+}
+@media (min-width:700px){
+    .contador {
+        width: 100%;
+        font-size: 40px;
+        
+    }
+    .torre{
+        height: 350px;
+    }
+    .disco{
+        height: 50px;
+    }
+    .reset{
+        font-size: 30px;
+    }
 }
