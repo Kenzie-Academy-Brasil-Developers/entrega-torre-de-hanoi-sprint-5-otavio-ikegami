@@ -1,0 +1,48 @@
+.torre{
+    background-image:url('./pictures/torre.png');
+    background-position: center;
+    object-fit: cover;
+    width: 150px;
+    height: 200px;
+    margin: 5px;
+    display: flex; 
+    flex-direction: column-reverse; 
+    justify-content: center;    
+}
+p{
+    position: absolute;
+    transform: translateY(-300%);
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+.button{
+    padding: 10px;
+    margin-top: 20px;
+}
+.disco{
+    align-self: center;
+    width: 80%;
+    height: 100px;
+    margin: 10px;
+    border-radius: 20px;
+}
+#disco0{
+    width: 90%;
+    background-color: cornflowerblue;
+}
+#disco1{
+    width: 60%;
+    background-color: burlywood;
+}
+#disco2{
+    width: 30%;
+    background-color: cadetblue;
+}
+.selected{
+    transform: translateY(-30%);
+    border:rgb(236, 13, 13) solid 5px;
+}

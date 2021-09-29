@@ -1,3 +1,73 @@
+//CRIANDO DISPLAY
+const body = document.querySelector('body')
+const button = document.getElementById('btn');
+
+    let createP = (texto, destino) =>{
+        const p = document.createElement('p');
+
+        p.innerText = texto;
+
+        return destino.appendChild(p);
+    }
+
+
+     let createDiv = (classe, destino, quantidade) => {
+        
+        for(let i = 0; i < quantidade; i++){
+            
+            const div = document.createElement('div');
+    
+            div.classList.add(classe)
+    
+            div.setAttribute('id', classe + i)
+        
+            destino.appendChild(div);
+        }
+     }
+
+
+
+    let displayCreate = () => {
+    const main = document.createElement('main');
+    main.classList.add('main');
+    body.appendChild(main);
+
+    const reset = document.createElement('button');
+    reset.innerText = 'Reset';
+    reset.classList.add('reset')
+    body.appendChild(reset);
+
+    createDiv('contador', main, 1);
+    createDiv('resultado', main, 1);
+    
+    createDiv('torre', main, 3);
+    const torre0 = document.querySelector('#torre0');
+    createP('torre 1', torre0);
+
+    const torre1 = document.querySelector('#torre1');
+    createP('torre 2', torre1);
+
+    const torre2 = document.querySelector('#torre2');
+    createP('torre 3', torre2);
+
+    createDiv('disco',torre0, 3);
+
+    return button.remove();
+    }
+
+
+    button.addEventListener('click', displayCreate);
+
+    let resetGame = () =>{
+        const corpo = document.querySelector('.main');
+        corpo.remove();
+        displayCreate();
+    }
+
+    const reset = document.querySelector('.reset');
+    reset.onclick = resetGame;
+//FUNÇÃO DE MOVIMENTO
+
 let moves=0;
 function movimentoDisco (){
     let cliques=0;
@@ -56,3 +126,8 @@ function segundaTorre (){
 })}
 
 
+//TESTE DE EXECUÇÃO
+  torre0.onclick = (x) =>{
+      console.log(x.currentTarget);
+    return x.currentTarget
+  } 
