@@ -1,17 +1,7 @@
 //CRIANDO DISPLAY
 const body = document.querySelector('body')
-const button = document.getElementById('btn');
 
-    let createP = (texto, destino) =>{
-        const p = document.createElement('p');
-
-        p.innerText = texto;
-
-        return destino.appendChild(p);
-    }
-
-
-     let createDiv = (classe, destino, quantidade) => {
+    let createDiv = (classe, destino, quantidade) => {
         
         for(let i = 0; i < quantidade; i++){
             
@@ -28,114 +18,90 @@ const button = document.getElementById('btn');
 
 
     let displayCreate = () => {
-    const main = document.createElement('main');
-    main.classList.add('main');
-    body.appendChild(main);
+        const main = document.createElement('main');
+        main.classList.add('main');
+        body.appendChild(main);
 
-    const reset = document.createElement('button');
-    reset.innerText = 'Reset';
-    reset.classList.add('reset')
-    body.appendChild(reset);
+        const reset = document.createElement('button');
+        reset.innerText = 'Reset';
+        reset.classList.add('reset')
+        body.appendChild(reset);
 
-    createDiv('contador', main, 1);
-    createDiv('resultado', main, 1);
-    
-    createDiv('torre', main, 3);
-    const torre0 = document.querySelector('#torre0');
-    createP('torre 1', torre0);
+        createDiv('contador', main, 1);
+        
+        createDiv('torre', main, 3);
+        const torre0 = document.querySelector('#torre0');
 
-    const torre1 = document.querySelector('#torre1');
-    createP('torre 2', torre1);
+        const torre1 = document.querySelector('#torre1');
 
-    const torre2 = document.querySelector('#torre2');
-    createP('torre 3', torre2);
+        const torre2 = document.querySelector('#torre2');
+        createDiv('disco',torre0, 3);
 
-    createDiv('disco',torre0, 3);
+    }
 
+    window.onload = displayCreate();
     
     //FUNÇÃO DE MOVIMENTO
-    let discoSelecionado='';
-    discoTamanho=0;
-    let moves=0;
-    //torre0
-    document.getElementById('torre0').addEventListener("click", () =>{
-    //adicionar disco
-    if(discoTamanho!==0 && 
-        discoTamanho<document.getElementById('torre0').lastChild.clientWidth){
-        document.getElementById('torre0').appendChild(discoSelecionado);
-        document.getElementById('torre0').lastChild.classList.remove("selected");
-        moves++;
-    }
-    //selecionar disco
-    if(document.getElementById('torre0').childElementCount>1){
-        discoSelecionado=document.getElementById('torre0').lastChild;
-        discoTamanho=document.getElementById('torre0').offsetWidth;
-        document.getElementById('torre0').lastChild.classList.add("selected");
-    }
-    //condição de vitória 
-    if(document.getElementById('torre2').childElementCount===3){
-        document.getElementById('resultado').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
-        document.getElementById('contador').appendChild(document.createTextNode(moves))
+    const contador = document.querySelector('.contador');
+    let discoSelecionado = '';
+    let discoTamanho = 0;
+    let moves = 0;
+    let clique = true;
 
-    }
-    })
-    //torre1
-    document.getElementById('torre1').addEventListener("click", () =>{
-    //adicionar disco
-    if(discoTamanho!==0 && 
-        discoTamanho<document.getElementById('torre1').lastChild.clientWidth){
-        document.getElementById('torre1').appendChild(discoSelecionado);
-        document.getElementById('torre1').lastChild.classList.remove("selected");
-        moves++;
-    }
-    //selecionar disco
-    if(document.getElementById('torre1').childElementCount>1){
-        discoSelecionado=document.getElementById('torre1').lastChild;
-        discoTamanho=document.getElementById('torre1').offsetWidth;
-        document.getElementById('torre1').lastChild.classList.add("selected");
-    }
-    //condição de vitória 
-    if(document.getElementById('torre2').childElementCount===3){
-        document.getElementById('resultado').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
-        document.getElementById('contador').appendChild(document.createTextNode(moves))
 
-    }
-    })
-    //torre2
-    document.getElementById('torre2').addEventListener("click", () =>{
-    //adicionar disco    
-    if(discoTamanho!==0 && 
-    discoTamanho<document.getElementById('torre2').lastChild.clientWidth){
-        document.getElementById('torre2').appendChild(discoSelecionado);
-        document.getElementById('torre2').lastChild.classList.remove("selected");
-        moves++;
-    }
-    //selecionar disco
-    if(document.getElementById('torre2').childElementCount>1){
-        discoSelecionado=document.getElementById('torre2').lastChild;
-        discoTamanho=document.getElementById('torre2').offsetWidth;
-        document.getElementById('torre2').lastChild.classList.add("selected");
-    }
-    //condição de vitória 
-    if(document.getElementById('torre2').childElementCount===3){
-        document.getElementById('resultado').appendChild(document.createTextNode("Parabéns você ganhou, desta vez!"))
-        document.getElementById('contador').appendChild(document.createTextNode(moves))
+    let moviment = (ev) => {
 
-    }
-    })
-    
-    return button.remove();
+
+        if(clique){
+            discoSelecionado = ev.currentTarget.lastChild;
+            discoSelecionado.classList.add('selected');
+
+            discoTamanho = discoSelecionado.offsetWidth;
+
+            return clique = false;
+        }
+        else if(!clique){
+            if(ev.currentTarget.lastChild === null || discoTamanho < ev.currentTarget.lastChild.clientWidth){
+                let torre = ev.currentTarget;
+            torre.appendChild(discoSelecionado);
+            discoSelecionado.classList.remove('selected');
+            
+            clique = true;
+            if(document.getElementById('torre2').childElementCount===3){
+            location.replace('vitoria.html')
+            
+            }
+            moves++;
+            return  contador.innerText = 'Movimentos:' + moves;
+            
+        }else {
+                discoSelecionado.classList.remove('selected');
+                clique = true;
+            }
+            
+        }  
     }
 
-    button.addEventListener('click', displayCreate);
+    document.querySelector('#torre0').addEventListener("click", moviment);
+    document.querySelector('#torre1').addEventListener("click", moviment);
+    document.querySelector('#torre2').addEventListener("click", moviment);
 
+
+    //FUNÇÃO RESET
     let resetGame = () =>{
-        const corpo = document.querySelector('.main');
-        corpo.remove();
-        displayCreate();
-    }
+        const disco0 = document.querySelector('#disco0');
+        const disco1 = document.querySelector('#disco1');
+        const disco2 = document.querySelector('#disco2');
 
-    // const reset = document.querySelector('.reset');
-    // reset.onclick = resetGame;
+        const torre0 = document.querySelector('#torre0');
+
+        torre0.appendChild(disco0);
+        torre0.appendChild(disco1);
+        torre0.appendChild(disco2);
+    }
+    const reset = document.querySelector('.reset');
+    reset.onclick = resetGame;
+
+
 
 
