@@ -72,7 +72,7 @@ const body = document.querySelector('body')
             
             }
             moves++;
-            return  contador.innerText = 'Movimentos:' + moves;
+            return  contador.innerText = 'Movimentos: ' + moves;
             
         }else {
                 discoSelecionado.classList.remove('selected');
@@ -94,8 +94,9 @@ const body = document.querySelector('body')
         const disco2 = document.querySelector('#disco2');
         const torre0 = document.querySelector('#torre0');
         
+        
         moves=0;
-        contador.innerText = 'Movimentos:' + moves;
+        contador.innerText = 'Movimentos: ' + moves;
         
         torre0.appendChild(disco0);
         torre0.appendChild(disco1);

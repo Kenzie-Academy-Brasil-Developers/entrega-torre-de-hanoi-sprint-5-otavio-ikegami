@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.4-web/css/all.css">
     <title>Torre Hanoi</title>
     <style>
 
+        main{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
         div{
-            width: 880px;
-            height:440px;
+            width:100vw;
+            height:120vw;
+            max-width: 880px;
+            max-height: 440px;
             background-image: url('./pictures/play.gif');
-            text-align: center;
-            vertical-align: bottom;
+            background-position: center;
         }
         a{
+            text-decoration: none;
+            color: black;
+            font-family: 'Gemunu Libre', sans-serif;
             
         }
         @keyframes title {
@@ -24,20 +37,107 @@
         }
         h1{
             animation-name: title;
-            animation-duration: 4s;
+            animation-duration: 3.8s;
+            animation-delay: -0.5s;
             animation-iteration-count: infinite;
+            font-family: 'Gemunu Libre', sans-serif;
+            font-size: 10vw;
+            padding-left: 30vw;
+        }
+        .fas {
+            position: absolute;
+            top: 10vw;
+            right: 5vw;
+            font-size: 6vw;
+            opacity: 1;
+            color: black;
+            
+        }
+        .display{
+            display: none;
+        }
+        .down{
+            margin-top: 230px;
+        }
+        p{
+            text-align: justify;
+            font-family:'Gemunu Libre', sans-serif;
+            font-size: 5vw;
+            text-shadow: 3px 3px 3px rgb(248, 172, 58);
+        }
+        aside{
+            float: right;
+        }
+        @media only screen and (min-width: 920px){
+            header{
+                float: right;
+                position: absolute;
+                right: 20px;
+            }
+            div{
+                width: 440px;
+                position: absolute;
+                left: 10px;
+                top: 10vw;
+            }
+            .fas{
+                display: none;
+            }
+            .display{
+                display:block;
+                width: 50vw;
+            }
+            p{
+                font-size: 30px;
+            }
+            h1{
+                text-align: center;
+                padding: 0 0 ;
+                right: 10vw;
+                font-size: 8vw;
+            }
         }
     </style>
 </head>
 <body>
 
-        <h1>Torre Hanoi</h1>
+        <main>
+            <header>
+                <h1>Torre Hanoi</h1>
 
-    <a href="./game.html">
-    <div>
-        PLAY
-    </div>
-    </a>
+            <aside>
+                
+                <i class="fas fa-align-justify" onclick="menu()"></i>
+                
+                <nav class="display">
+                    <p>Torre de Hanói é um quebra-cabeça que consiste em uma base contendo três pinos, em um dos quais são dispostos alguns discos uns sobre os outros, em ordem crescente de diâmetro, de cima para baixo. O problema consiste em passar todos os discos de um pino para outro qualquer, usando um dos pinos como auxiliar, de maneira que um disco maior nunca fique em cima de outro menor em nenhuma situação. O número de discos pode variar sendo que o mais simples contém apenas três.</p>
+                </nav>
 
+            </aside>
+            </header>
+    
+            <a href="./game.html">
+                <div></div>
+            </a>
+    
+        </main>
+     
+<script>
+    const nav = document.querySelector('nav');
+    const play = document.querySelector('div');
+    let clique = true;
+    function menu(){
+        if(clique){
+            nav.classList.remove('display');
+            play.classList.add('down');
+            return clique = false;
+        }else{
+            nav.classList.add   ('display');
+            play.classList.remove('down');
+            return clique = true;
+        }
+    }
+
+</script>
 </body>
 </html>
