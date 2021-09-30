@@ -12,14 +12,15 @@
         body{
             background-color:rgb(226, 167, 128);
             background-image:url('./pictures/vic.gif');
+            background-size: 150%;
             background-repeat:no-repeat;
         }
         .playAgain{
             position: absolute;
-            right: 20vw;
-            top: 15vw;
-            padding: 50px;
-            font-size: 30px;
+            top:150vw;
+            margin-left: 15vw;
+            padding: 10vw;
+            font-size: 7vw;
             font-family: 'Gemunu Libre', sans-serif;
             color: rgb(226, 167, 128);
             text-shadow: darksalmon 2px 2px 4px;
@@ -38,16 +39,34 @@
         }
         p{
             position: absolute;
-            right: 16vw;
-            top: 10vh;
+            top: 120vw;
+            margin-left: 15vw;
             font-family: 'Gemunu Libre', sans-serif;
-            font-size: 2vw;
+            font-size: 7vw;
             text-shadow: dimgrey 2px 2px 2px;
+        }
+        @media only screen and (min-width: 700px){
+            body{
+                background-size: auto;
+            }
+            .playAgain{
+                font-size: 30px;
+                padding: 50px;
+                right: 20vw;
+                top: 20vw;
+                margin-left: 0;
+            }
+            p{
+                margin-left: 0;
+                top: 10vw   ;
+                font-size: 2vw;
+                right: 23vw;
+            }
         }
     </style>
 </head>
 <body>
-    <p>PARABÉNS, VC GANHOU!! DESSA VEZ... KKK</p>
-    <button class="playAgain" >JOGAR NOVAMENTE </button>
+    <p>PARABÉNS, VC GANHOU!! <br> DESSA VEZ... KKK</p>
+    <button class="playAgain" onclick="location.replace('game.html')">JOGAR NOVAMENTE </button>
 </body>
 </html>
